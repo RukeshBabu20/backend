@@ -2,25 +2,26 @@ import { employeeType } from "../types/employeeTypes";
 import employeeModel from "../models/employeeModel";
 
 export const createEmployee = async (user: employeeType) => {
-  const employees = employeeModel.create(user);
-  return employees;
+  return await employeeModel.create(user);
 };
 
 export const showEmployee = async () => {
-  return employeeModel.find();
+  return await employeeModel.find();
 };
 
 export const showByIdEmployee = async (userId: string) => {
-  return employeeModel.findById(userId);
+  return await employeeModel.findById(userId);
 };
 
 export const updateIdEmployee = async (
   userId: string,
   updateData: employeeType
 ) => {
-  return employeeModel.findByIdAndUpdate(userId, updateData, { new: true });
+  return await employeeModel.findByIdAndUpdate(userId, updateData, {
+    new: true,
+  });
 };
 
 export const deleteEmployeee = async (userId: string) => {
-  return employeeModel.findByIdAndDelete(userId);
+  return await employeeModel.findByIdAndDelete(userId);
 };
